@@ -80,6 +80,10 @@ data:extend(
     {
       {
         type = "unlock-recipe",
+        recipe = "kr-filtration-plant"
+      },
+      {
+        type = "unlock-recipe",
         recipe = "silica"
       },
       {

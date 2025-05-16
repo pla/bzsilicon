@@ -1,4 +1,4 @@
-local util = require("data-util");
+local util = require("__bzsilicon__.data-util");
 
 local si = util.me.more_intermediates() and "silicon-wafer" or "silicon"
 
@@ -217,6 +217,11 @@ util.add_prerequisite("circuit-network", util.me.silicon_processing)
 if mods["Krastorio2"] then
   util.add_ingredient("kr-advanced-lab", "optical-fiber", 10)
   util.add_ingredient("kr-ai-core", "optical-fiber", 2)
+  --remove silicone from engint unit, add to electric engine
+  util.remove_ingredient("engine-unit", "silicone")
+  util.remove_ingredient("engine-unit", "pipe")
+  util.add_ingredient("engine-unit","pipe",2)
+  util.add_ingredient("electric-engine-unit","silicone", 1)
 
   util.add_prerequisite(util.me.silicon_processing, "silica-processing")
 

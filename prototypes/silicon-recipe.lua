@@ -1,5 +1,5 @@
 -- Silicon
-local util = require("data-util");
+local util = require("__bzsilicon__.data-util");
 local item_sounds = require('__base__.prototypes.item_sounds')
 if mods["Krastorio2"] then
   util.remove_raw("recipe", "silicon-2")
@@ -102,7 +102,7 @@ data:extend({
     type = "item",
     name = "silicon-wafer",
     icon = "__bzsilicon__/graphics/icons/silicon-wafer.png",
-    icon_size = 64, icon_mipmaps = 3,
+    icon_size = 64,
     inventory_move_sound = item_sounds.electric_small_inventory_move,
     pick_sound = item_sounds.electric_small_inventory_pickup,
     drop_sound = item_sounds.electric_small_inventory_move,
@@ -159,7 +159,7 @@ data:extend({
     type = "item",
     name = "solar-cell",
     icon = "__bzsilicon__/graphics/icons/solar-cell.png",
-    icon_size = 64, icon_mipmaps = 3,
+    icon_size = 64,
     inventory_move_sound = item_sounds.electric_small_inventory_move,
     pick_sound = item_sounds.electric_small_inventory_pickup,
     drop_sound = item_sounds.electric_small_inventory_move,

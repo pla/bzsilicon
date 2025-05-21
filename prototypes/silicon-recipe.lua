@@ -208,7 +208,7 @@ if not mods["space-age"] then
 end
 end
 util.add_effect("kr-fluids-chemistry", {type="unlock-recipe", recipe="hydrogen-chloride"})
-
+util.add_unlock("kr-silicon-processing","silicone")
 if util.me.more_intermediates() and not mods["space-age"] then
   util.add_unlock("advanced-circuit", "silicon-wafer")
   util.add_prerequisite("advanced-circuit", "sulfur-processing")

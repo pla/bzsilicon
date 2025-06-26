@@ -8,6 +8,7 @@ require("prototypes/stone")
 require("prototypes/basic-crusher")
 require("recipes/silica-matter")
 require("compatibility/hot-metals")
+require("recipe-updates")
 
 local util = require("data-util");
 util.prepare_recycling_helper()

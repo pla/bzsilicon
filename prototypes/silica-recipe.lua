@@ -1,12 +1,12 @@
 -- Silica
-local util = require("__bzsilicon__.data-util");
+local util = require("__bzsilicon__.data-util")
 local item_sounds = require('__base__.prototypes.item_sounds')
 data:extend(
 {
   mods["Krastorio2"] and {
     type = "recipe",
     name = "silica",
-    category = "kr-crushing",
+    categories = {"kr-crushing"},
     enabled = false,
     energy_required = 4,
     allow_productivity = true,
@@ -15,7 +15,7 @@ data:extend(
   } or util.me.use_bio_crushed_stone() and {
     type = "recipe",
     name = "silica",
-    category = "smelting",
+    categories = {"smelting"},
     enabled = false,
     energy_required = 6,
     allow_productivity = true,
@@ -24,7 +24,7 @@ data:extend(
   } or mods["omnimatter"] and {
     type = "recipe",
     name = "silica",
-    category = "smelting",
+    categories = {"smelting"},
     enabled = false,
     energy_required = 6,
     allow_productivity = true,
@@ -33,7 +33,7 @@ data:extend(
   -- } or mods["aai-industry"] and {
   --   type = "recipe",
   --   name = "silica",
-  --   category = mods["space-age"] and "basic-crushing" or "crafting",
+  --   categories = {mods["space-age"] and "basic-crushing" or "crafting"},
   --   enabled = false,
   --   energy_required = 0.5,
   --   allow_productivity = true,
@@ -43,7 +43,7 @@ data:extend(
   {
     type = "recipe",
     name = "silica",
-    category = mods["space-age"] and "basic-crushing" or "smelting",
+    categories = {mods["space-age"] and "basic-crushing" or "smelting"},
     enabled = false,
     energy_required = 3.2,
     allow_productivity = true,
@@ -139,7 +139,7 @@ data:extend({
     type = "recipe",
     name = "silica-from-sand-maraxsis",
     localised_name = {"item-name.silica"},
-    category = "basic-crushing",
+    categories = {"basic-crushing"},
     enabled = false,
     energy_required = 1.6,
     allow_productivity = true,

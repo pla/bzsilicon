@@ -8,7 +8,7 @@ if mods["space-age"] then
      {icon = "__space-age__/graphics/icons/fluid/lava.png", icon_size=64, shift={0,-8}},
      {icon = "__base__/graphics/icons/stone.png", icon_size=64, scale = 0.333, shift={0,8}},
     },
-    category = "metallurgy",
+    categories = {"metallurgy"},
     subgroup = "vulcanus-processes",
     order = "a[melting]-a[lava-a]",
     auto_recycle = false,

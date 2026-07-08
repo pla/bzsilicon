@@ -1,4 +1,4 @@
-local util = require("__bzsilicon__.data-util");
+local util = require("__bzsilicon__.data-util")
 
 local si = util.me.more_intermediates() and "silicon-wafer" or "silicon"
 
@@ -19,10 +19,10 @@ if util.me.use_gyros() then
   util.add_prerequisite("gunships", "gyro")
   util.add_ingredient("flying-fortress", "gyro", 4)
   util.add_ingredient("jet", "gyro", 4)
-  
+
   util.add_ingredient("jetpack-2", "gyro", 2)
   util.add_prerequisite("jetpack-2", "gyro")
-  
+
   --K2
   util.add_ingredient("kr-advanced-exoskeleton-equipment", "gyro", 4)
   util.add_ingredient("kr-laser-artillery-turret", "gyro", 4)
@@ -71,16 +71,16 @@ end
 util.add_ingredient("solar-cell", "lead-plate", 1)
 
 if not mods["Krastorio2"] then
-  util.remove_ingredient("concrete", "stone-brick");
+  util.remove_ingredient("concrete", "stone-brick")
   if mods["Bio_Industries"] or mods["omnimatter"] then
-    util.add_ingredient("concrete", "stone-brick", 3);
-    util.add_ingredient("concrete", "silica", 10);
-  else 
-    util.add_ingredient("concrete", "silica", 25);
+    util.add_ingredient("concrete", "stone-brick", 3)
+    util.add_ingredient("concrete", "silica", 10)
+  else
+    util.add_ingredient("concrete", "silica", 25)
   end
   util.add_prerequisite("concrete", "silica-processing")
 
-  if util.me.more_intermediates() then 
+  if util.me.more_intermediates() then
     util.replace_some_ingredient("processing-unit", "electronic-circuit", 10, "silicon-wafer", 10)
 
     util.multiply_recipe("efficiency-module", 2)
@@ -101,19 +101,18 @@ if not mods["Krastorio2"] then
 
     if mods.IndustrialRevolution then
       util.add_ingredient("solar-panel", "solar-cell", 9)
-      util.add_effect("ir2-solar-energy-1", {type = "unlock-recipe", recipe="solar-cell"})
+      util.add_effect("ir2-solar-energy-1", { type = "unlock-recipe", recipe = "solar-cell" })
     else
       util.replace_ingredient("solar-panel", "electronic-circuit", "solar-cell")
-      util.add_effect("solar-energy", {type = "unlock-recipe", recipe="solar-cell"})
+      util.add_effect("solar-energy", { type = "unlock-recipe", recipe = "solar-cell" })
     end
     util.replace_ingredient("solar-panel-equipment", "solar-panel", "solar-cell")
-    
+
     if not mods.modmashsplinterelectonics then
       util.multiply_recipe("advanced-circuit", 3)
       util.replace_some_ingredient("advanced-circuit", "electronic-circuit", 3, "silicon-wafer", 3)
     end
     util.add_prerequisite("advanced-circuit", util.me.silicon_processing)
-
   else
     util.replace_some_ingredient("solar-panel", "electronic-circuit", 10, "kr-silicon", 10)
 
@@ -137,9 +136,9 @@ if not mods["Krastorio2"] then
   util.add_prerequisite("solar-energy", "silicon-processing")
   util.add_prerequisite("modules", util.me.silicon_processing)
 else
-  util.add_ingredient("concrete", "silica", 15);
+  util.add_ingredient("concrete", "silica", 15)
   if not mods["aai-industry"] then
-    util.add_ingredient("concrete", "sand", 10);
+    util.add_ingredient("concrete", "sand", 10)
   end
 end
 
@@ -147,12 +146,31 @@ util.replace_ingredient("beacon", "copper-cable", "optical-fiber")
 util.add_prerequisite("effect-transmission", "fiber-optics")
 
 -- Circuit network changes
-local useful_combinators = {"timer-combinator", "counting-combinator", "random-combinator",
-  "power-combinator", "max-combinator", "min-combinator", "and-gate-combinator",
-  "nand-gate-combinator", "nor-gate-combinator", "not-gate-combinator", "or-gate-combinator",
-  "xnor-gate-combinator", "xor-gate-combinator", "converter-combinator", "detector-combinator",
-  "sensor-combinator", "railway-combinator", "color-combinator", "daytime-combinator",
- "statistic-combinator", "pollution-combinator", "emitter-combinator", "receiver-combinator"}
+local useful_combinators = {
+  "timer-combinator",
+  "counting-combinator",
+  "random-combinator",
+  "power-combinator",
+  "max-combinator",
+  "min-combinator",
+  "and-gate-combinator",
+  "nand-gate-combinator",
+  "nor-gate-combinator",
+  "not-gate-combinator",
+  "or-gate-combinator",
+  "xnor-gate-combinator",
+  "xor-gate-combinator",
+  "converter-combinator",
+  "detector-combinator",
+  "sensor-combinator",
+  "railway-combinator",
+  "color-combinator",
+  "daytime-combinator",
+  "statistic-combinator",
+  "pollution-combinator",
+  "emitter-combinator",
+  "receiver-combinator",
+}
 
 util.replace_ingredient("green-wire", "copper-cable", "optical-fiber")
 util.replace_ingredient("green-wire", "electronic-circuit", "kr-silicon")
@@ -210,7 +228,6 @@ util.replace_some_ingredient("transport-depot-reader", "electronic-circuit", 5, 
 util.add_ingredient("transport-depot-writer", "optical-fiber", 5)
 util.replace_some_ingredient("transport-depot-writer", "electronic-circuit", 5, si, 5)
 
-
 util.add_prerequisite("circuit-network", "fiber-optics")
 util.add_prerequisite("circuit-network", util.me.silicon_processing)
 
@@ -220,13 +237,13 @@ if mods["Krastorio2"] then
   --remove silicone from engint unit, add to electric engine
   util.remove_ingredient("engine-unit", "silicone")
   util.remove_ingredient("engine-unit", "pipe")
-  util.add_ingredient("engine-unit","pipe",2)
-  util.add_ingredient("electric-engine-unit","silicone", 1)
+  util.add_ingredient("engine-unit", "pipe", 2)
+  util.add_ingredient("electric-engine-unit", "silicone", 1)
 
   util.add_prerequisite(util.me.silicon_processing, "silica-processing")
 
-  if util.me.more_intermediates() then 
-    util.add_effect(util.me.silicon_processing, {type = "unlock-recipe", recipe="silicon-wafer"})
+  if util.me.more_intermediates() then
+    util.add_effect(util.me.silicon_processing, { type = "unlock-recipe", recipe = "silicon-wafer" })
     util.remove_ingredient("kr-electronic-components", "kr-silicon")
     util.add_ingredient("kr-electronic-components", "silicon-wafer", 1)
     util.multiply_recipe("electronic-components-lithium", 2)
@@ -236,7 +253,7 @@ if mods["Krastorio2"] then
     util.replace_ingredient("solar-panel", "electronic-circuit", "solar-cell")
     util.remove_ingredient("solar-panel", "kr-silicon")
     util.replace_ingredient("solar-panel-equipment", "solar-panel", "solar-cell")
-    util.add_effect("solar-energy", {type = "unlock-recipe", recipe="solar-cell"})
+    util.add_effect("solar-energy", { type = "unlock-recipe", recipe = "solar-cell" })
   end
 end
 
@@ -266,17 +283,18 @@ if mods["zombiesextended-core"] then
   util.add_ingredient("complex-processing-unit", si, 2)
 end
 
-
 if mods["extended-research-system"] and mods["Bio_Industries"] then
-  data:extend({{
+  data:extend({
+    {
       type = "recipe",
       name = "bi-stone-crusher-ers",
-      category = "crafting",
+      categories = { "crafting" },
       enabled = true,
       energy_required = 6,
-      ingredients = {util.item("iron-plate", 100), util.item("iron-gear-wheel", 5)},
+      ingredients = { util.item("iron-plate", 100), util.item("iron-gear-wheel", 5) },
       results = util.item("bi-stone-crusher"),
-    }})
+    },
+  })
   if data.raw.recipe["bi-crushed-stone-1"] then
     data.raw.recipe["bi-crushed-stone-1"].enabled = true
   end
@@ -285,7 +303,7 @@ end
 -- Sand in crusher. If sand comes from stone, silica comes from sand
 if mods["space-age"] then
   if data.raw.item["sand"] and data.raw.recipe["sand"] and #data.raw.recipe["sand"].ingredients == 1 then
-    data.raw.recipe["sand"].category = "basic-crushing"
+    data.raw.recipe["sand"].categories = { "basic-crushing" }
     log(serpent.block(data.raw.recipe.sand))
     if data.raw.recipe.sand.ingredients[1].name == "stone" then
       util.replace_ingredient("silica", "stone", "sand", 1)

@@ -1,4 +1,4 @@
-local util = require("data-util");
+local util = require("data-util")
 local item_sounds = require('__base__.prototypes.item_sounds')
 
 if util.me.use_gyros() then
@@ -40,7 +40,7 @@ data:extend({
   {
     type = "recipe",
     name = "gyro",
-    category = "crafting",
+    categories = {"crafting"},
     subgroup = "intermediate-product",
     enabled = false,
     energy_required = 12,

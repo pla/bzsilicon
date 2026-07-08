@@ -1,4 +1,4 @@
-local util = require("data-util");
+local util = require("data-util")
 
 if mods["space-exploration"] then
   if string.sub(mods["space-exploration"], 1, 3) == "0.6" and data.raw["item-subgroup"]["stone"] then
@@ -14,25 +14,28 @@ if mods["space-exploration"] then
       string.sub(mods["space-exploration"], 1, 3) == "0.6" and 
       {type="fluid", name="se-pyroflux", amount=10} or {"se-vulcanite-block", 1},
     }
-    recipe.category = "smelting" -- now uses pyroflux so can't be kiln in se 0.6
-    recipe.energy_required=21.6
-    recipe.results = {
-      {name = "silicon", amount = 6},
+    recipe.categories = {
+      "smelting", -- now uses pyroflux so can't be kiln in se 0.6} amount = 6},
     }
     if string.sub(mods["space-exploration"], 1, 3) == "0.6" then
-      table.insert(recipe.ingredients, {"kr-coke", 1})
+      table.insert(recipe.ingredients, { "kr-coke", 1 })
       recipe.icons = {
-        { icon = "__Krastorio2Assets__/icons/items-with-variations/silicon/silicon.png", icon_size = 64},
-        { icon = "__space-exploration-graphics__/graphics/icons/fluid/pyroflux.png", icon_size = 64, scale=0.25, shift= {-10, -10}},
+        { icon = "__Krastorio2Assets__/icons/items-with-variations/silicon/silicon.png", icon_size = 64 },
+        {
+          icon = "__space-exploration-graphics__/graphics/icons/fluid/pyroflux.png",
+          icon_size = 64,
+          scale = 0.25,
+          shift = { -10, -10 },
+        },
       }
     end
   else
-    se_delivery_cannon_recipes["silicon"] = {name= "silicon"}
+    se_delivery_cannon_recipes["silicon"] = { name = "silicon" }
     data:extend({
     {
       type = "recipe",
       name = "silicon-smelting-vulcanite",
-      category = "smelting",
+      categories = {"smelting"},
       order = "d[silicon]",
       energy_required = 6,
       enabled = false,

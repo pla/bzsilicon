@@ -1,4 +1,4 @@
-local util = require("data-util");
+local util = require("data-util")
 if mods["any-planet-start"] and util.me.get_setting("aps-planet") == "vulcanus" then
   -- Avoid cycles or soft locks on Vulcanus start
   util.set_prerequisite("silica-processing", {})
@@ -14,7 +14,7 @@ if mods["any-planet-start"] and util.me.get_setting("aps-planet") == "vulcanus" 
         type = "recipe",
         name = "silicon-wafer-by-hand",
         localised_name = {"item-name.silicon-wafer"},
-        category = "handcrafting",
+        categories = {"handcrafting"},
         subgroup = "intermediate-product",
         enabled = false,
         energy_required = 1,
@@ -25,11 +25,11 @@ if mods["any-planet-start"] and util.me.get_setting("aps-planet") == "vulcanus" 
         results = {util.item("silicon-wafer", 1)}
       },
     })
-    util.add_unlock("silicon-processing", "silicon-wafer-by-hand") 
+    util.add_unlock("silicon-processing", "silicon-wafer-by-hand")
   end
 elseif mods["any-planet-start"] and util.me.get_setting("aps-planet") == "fulgora" then
-  util.set_prerequisite("silica-processing", {"automation-2"})
-  util.set_prerequisite("silicon-processing", {"silica-processing"})
+  util.set_prerequisite("silica-processing", { "automation-2" })
+  util.set_prerequisite("silicon-processing", { "silica-processing" })
   util.remove_prerequisite("advanced-circuit", "silicon-processing")
 elseif mods["any-planet-start"] and util.me.get_setting("aps-planet") == "gleba" then
   util.add_new_crafting_category("handcrafting", true)
@@ -38,7 +38,7 @@ elseif mods["any-planet-start"] and util.me.get_setting("aps-planet") == "gleba"
       type = "recipe",
       name = "silica-from-ash-by-hand",
       localised_name = {"item-name.silica"},
-      category = "handcrafting",
+      categories = {"handcrafting"},
       subgroup = "raw-material",
       enabled = false,
       energy_required = 1,

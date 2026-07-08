@@ -1,5 +1,5 @@
 -- Silicon
-local util = require("__bzsilicon__.data-util");
+local util = require("__bzsilicon__.data-util")
 local item_sounds = require('__base__.prototypes.item_sounds')
 if mods["Krastorio2"] then
   util.remove_raw("recipe", "silicon-2")
@@ -21,7 +21,7 @@ data:extend(
   mods["Krastorio2"] and {
     type = "recipe",
     name = "kr-silicon",
-    category = "smelting",
+    categories = {"smelting"},
     enabled = false,
     energy_required = 14.4,
     allow_productivity = true,
@@ -33,7 +33,7 @@ data:extend(
   } or {
     type = "recipe",
     name = "silicon",
-    category = "smelting",
+    categories = {"smelting"},
     enabled = false,
     energy_required = 3.2,
     allow_productivity = true,
@@ -97,99 +97,99 @@ data:extend(
 }
 )
 if util.me.more_intermediates() then
-data:extend({
-  {
-    type = "item",
-    name = "silicon-wafer",
-    icon = "__bzsilicon__/graphics/icons/silicon-wafer.png",
-    icon_size = 64,
-    inventory_move_sound = item_sounds.electric_small_inventory_move,
-    pick_sound = item_sounds.electric_small_inventory_pickup,
-    drop_sound = item_sounds.electric_small_inventory_move,
-    subgroup = "intermediate-product",
-    stack_size = util.get_stack_size(100),
-    order = "s[silicon]-silicon-wafer",
-    weight = 1*kg,
-  },
-  {
-    type = "recipe",
-    name = "silicon-wafer",
-    category = "crafting-with-fluid",
-    subgroup = "intermediate-product",
-    enabled = false,
-    energy_required = 2,
-    allow_productivity = true,
-    ingredients = (mods["Krastorio2"] and {
-      {type= "item", name="kr-silicon", amount=2},
-      {type= "fluid", name="kr-hydrogen-chloride", amount=5},
-    } or {
-      {type= "item", name="silicon", amount=2},
-      {type= "fluid", name="sulfuric-acid", amount=5},
-    }),
-    results = {util.item("silicon-wafer", 3)}
-  },
-  {
-    type = "item",
-    name = "silicone",
-    icon = "__bzsilicon__/graphics/icons/silicone.png",
-    icon_size = 64,
-    subgroup = "intermediate-product",
-    stack_size = util.get_stack_size(100),
-    order = "s[silicon]-silicone",
-    weight = 2*kg,
-  },
-  {
-    type = "recipe",
-    name = "silicone",
-    icon = "__bzsilicon__/graphics/icons/silicone-recipe.png",
-    icon_size = 128,
-    subgroup = "intermediate-product",
-    category = mods["space-age"] and "organic-or-chemistry" or "crafting-with-fluid",
-    enabled = false,
-    energy_required = 10,
-    allow_productivity = true,
-    ingredients = {
-      {type= "item", name= mods["Krastorio2"] and "kr-silicon" or "silicon", amount=10},
-      {type= "item", name="copper-plate", amount=1},
-      {type= "fluid", name="water", amount=20},
+  data:extend({
+    {
+      type = "item",
+      name = "silicon-wafer",
+      icon = "__bzsilicon__/graphics/icons/silicon-wafer.png",
+      icon_size = 64,
+      inventory_move_sound = item_sounds.electric_small_inventory_move,
+      pick_sound = item_sounds.electric_small_inventory_pickup,
+      drop_sound = item_sounds.electric_small_inventory_move,
+      subgroup = "intermediate-product",
+      stack_size = util.get_stack_size(100),
+      order = "s[silicon]-silicon-wafer",
+      weight = 1 * kg,
     },
-    results = {util.item("silicone", 5)}
-  },
-  {
-    type = "item",
-    name = "solar-cell",
-    icon = "__bzsilicon__/graphics/icons/solar-cell.png",
-    icon_size = 64,
-    inventory_move_sound = item_sounds.electric_small_inventory_move,
-    pick_sound = item_sounds.electric_small_inventory_pickup,
-    drop_sound = item_sounds.electric_small_inventory_move,
-    subgroup = "intermediate-product",
-    stack_size = util.get_stack_size(100),
-    order = "s[silicon]-solar-cell",
-    weight = 0.5*kg,
-  },
-  {
-    type = "recipe",
-    name = "solar-cell",
-    category = "crafting",
-    subgroup = "intermediate-product",
-    enabled = false,
-    energy_required = 2,
-    allow_productivity = true,
-    ingredients = {
-      {type= "item", name="silicon-wafer", amount=1},
-      {type= "item", name="electronic-circuit", amount=1},
+    {
+      type = "recipe",
+      name = "silicon-wafer",
+      categories = { "crafting-with-fluid" },
+      subgroup = "intermediate-product",
+      enabled = false,
+      energy_required = 2,
+      allow_productivity = true,
+      ingredients = (mods["Krastorio2"] and {
+        { type = "item", name = "kr-silicon", amount = 2 },
+        { type = "fluid", name = "kr-hydrogen-chloride", amount = 5 },
+      } or {
+        { type = "item", name = "silicon", amount = 2 },
+        { type = "fluid", name = "sulfuric-acid", amount = 5 },
+      }),
+      results = { util.item("silicon-wafer", 3) },
     },
-    results = {util.item("solar-cell", 2)}
-  },
-})
+    {
+      type = "item",
+      name = "silicone",
+      icon = "__bzsilicon__/graphics/icons/silicone.png",
+      icon_size = 64,
+      subgroup = "intermediate-product",
+      stack_size = util.get_stack_size(100),
+      order = "s[silicon]-silicone",
+      weight = 2 * kg,
+    },
+    {
+      type = "recipe",
+      name = "silicone",
+      icon = "__bzsilicon__/graphics/icons/silicone-recipe.png",
+      icon_size = 128,
+      subgroup = "intermediate-product",
+      categories = { mods["space-age"] and "organic-or-chemistry" or "crafting-with-fluid" },
+      enabled = false,
+      energy_required = 10,
+      allow_productivity = true,
+      ingredients = {
+        { type = "item", name = mods["Krastorio2"] and "kr-silicon" or "silicon", amount = 10 },
+        { type = "item", name = "copper-plate", amount = 1 },
+        { type = "fluid", name = "water", amount = 20 },
+      },
+      results = { util.item("silicone", 5) },
+    },
+    {
+      type = "item",
+      name = "solar-cell",
+      icon = "__bzsilicon__/graphics/icons/solar-cell.png",
+      icon_size = 64,
+      inventory_move_sound = item_sounds.electric_small_inventory_move,
+      pick_sound = item_sounds.electric_small_inventory_pickup,
+      drop_sound = item_sounds.electric_small_inventory_move,
+      subgroup = "intermediate-product",
+      stack_size = util.get_stack_size(100),
+      order = "s[silicon]-solar-cell",
+      weight = 0.5 * kg,
+    },
+    {
+      type = "recipe",
+      name = "solar-cell",
+      categories = { "crafting" },
+      subgroup = "intermediate-product",
+      enabled = false,
+      energy_required = 2,
+      allow_productivity = true,
+      ingredients = {
+        { type = "item", name = "silicon-wafer", amount = 1 },
+        { type = "item", name = "electronic-circuit", amount = 1 },
+      },
+      results = { util.item("solar-cell", 2) },
+    },
+  })
 if mods["space-age"] then
 data:extend({
   {
     type = "recipe",
     name = "silicon-wafer-by-hand",
     localised_name = {"item-name.silicon-wafer"},
-    category = "handcrafting",
+    categories = {"handcrafting"},
     subgroup = "intermediate-product",
     enabled = false,
     energy_required = 2,

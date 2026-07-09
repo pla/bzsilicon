@@ -11,7 +11,7 @@ data:extend( {
 		type = "string-setting",
 		name = "bzsilicon-more-intermediates",
 		setting_type = "startup",
-		default_value = "no",
+		default_value = "yes",
     allowed_values = {"yes", "no"},
     order = "a-a",
 	},

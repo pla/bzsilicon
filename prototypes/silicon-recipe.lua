@@ -142,7 +142,7 @@ if util.me.more_intermediates() then
       type = "recipe",
       name = "silicone",
       icon = "__bzsilicon__/graphics/icons/silicone.png",
-      icon_size = 128,
+      icon_size = 64,
       subgroup = "intermediate-product",
       categories = { mods["space-age"] and "organic-or-chemistry" or "crafting-with-fluid" },
       enabled = false,
